@@ -69,6 +69,7 @@ header > h1 {
     border: white solid 3px;
     border-radius: 50%;
     transition: .3s;
+    user-select: none;
 }
 
 .options img {

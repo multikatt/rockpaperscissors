@@ -36,18 +36,28 @@ $(() => {
         return hands[Math.floor(Math.random()*10 % 3)];
     }
 
+    function flashBorder(element, color) {
+        document.getElementById(element).style.border = `${color} solid 3px`;
+        setTimeout(() => {
+            document.getElementById(element).style.border = "white solid 3px";
+        }, 300);
+    }
+
     function turn(element) {
         const rH = randomHand();
         const winner = getWinner(element.target.id, rH);
         if (winner == -1) {
             elements.results.textContent = `It was a draw! You both chose ${element.target.id}`;
+            flashBorder(element.target.id, "grey");
         }
         else {
             if (winner == 0) {
                 elements.results.textContent = `${element.target.id} (user) beats ${rH} (comp).`;
+                flashBorder(element.target.id, "green");
             }
             if (winner == 1) {
                 elements.results.textContent = `${rH} (comp) beats ${element.target.id} (user).`;
+                flashBorder(element.target.id, "red");
             }
             state.scores[winner ? "comp" : "user"] += 1;
         }
