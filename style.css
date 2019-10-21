@@ -57,7 +57,7 @@ header > h1 {
     text-align: center;
 }
 
-.results {
+#results {
     font-size: 30px;
     margin: 20px 0;
 }
@@ -81,7 +81,7 @@ header > h1 {
     cursor: pointer;
 }
 
-.instructions {
+#instructions {
     margin: 20px 0;
     font-size: 20px;
 }
