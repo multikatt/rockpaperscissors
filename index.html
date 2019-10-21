@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
@@ -21,9 +22,11 @@
     </div>
     <div class="main">
         <div class="results">Paper covers rock. You win!</div>
-            <img src="images/rock.png" alt="rock" class="options">
-            <img src="images/paper.png" alt="paper" class="options">
-            <img src="images/scissors.png" alt="scissors" class="options">
+        <div class="options">
+            <div class="option" id="rock"><img src="images/rock.png" alt="rock"></div>
+            <div class="option" id="paper"><img src="images/paper.png" alt="paper"></div>
+            <div class="option" id="scissors"><img src="images/scissors.png" alt="scissors"></div>
+        </div>
         <div class="instructions">MAKE YOUR MOVE.</div>
     </div>
 </body>

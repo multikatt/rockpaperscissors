@@ -62,13 +62,23 @@ header > h1 {
     margin: 20px 0;
 }
 
-.options {
+.option {
     display: inline-block;
     margin: 0px 10px;
     padding: 10px;
-    border: black solid 3px;
-    filter: invert(100%);
+    border: white solid 3px;
     border-radius: 50%;
+    transition: .3s;
+}
+
+.options img {
+    filter: invert(100%);
+    pointer-events: none;
+}
+
+.option:hover {
+    background-color: #373a3f;
+    cursor: pointer;
 }
 
 .instructions {
