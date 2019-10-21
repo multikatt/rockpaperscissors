@@ -11,11 +11,7 @@ $(() => {
             user: document.getElementById("user-score"),
             comp: document.getElementById("comp-score"),
         },
-        options: {
-            rock: document.getElementById("rock"),
-            paper: document.getElementById("paper"),
-            scissors: document.getElementById("scissors")
-        }
+        results: document.getElementById("results")
     }
 
     function getWinner(userHand, compHand) { 
@@ -43,10 +39,18 @@ $(() => {
     function turn(element) {
         const rH = randomHand();
         const winner = getWinner(element.target.id, rH);
-        if (winner > -1) {
+        if (winner == -1) {
+            elements.results.textContent = `It was a draw! You both chose ${element.target.id}`;
+        }
+        else {
+            if (winner == 0) {
+                elements.results.textContent = `${element.target.id} (user) beats ${rH} (comp).`;
+            }
+            if (winner == 1) {
+                elements.results.textContent = `${rH} (comp) beats ${element.target.id} (user).`;
+            }
             state.scores[winner ? "comp" : "user"] += 1;
         }
-        
         elements.scores.comp.textContent = state.scores.comp;
         elements.scores.user.textContent = state.scores.user;
     }
