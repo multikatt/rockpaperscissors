@@ -33,7 +33,7 @@ $(() => {
     function randomHand() {
         const hands = ["rock", "scissors", "paper"];
         
-        return hands[Math.floor(Math.random()*10 % 3)];
+        return hands[Math.floor(Math.random() * 3)];
     }
 
     function flashBorder(element, color) {
@@ -46,21 +46,24 @@ $(() => {
     function turn(element) {
         const rH = randomHand();
         const winner = getWinner(element.target.id, rH);
-        if (winner == -1) {
-            elements.results.textContent = `It was a draw! You both chose ${element.target.id}`;
-            flashBorder(element.target.id, "grey");
-        }
-        else {
-            if (winner == 0) {
+        switch (winner) {
+            case -1:
+                elements.results.textContent = `It was a draw! You both chose ${element.target.id}`;
+                flashBorder(element.target.id, "grey");                
+                break;
+            case 0:
                 elements.results.textContent = `${element.target.id} (user) beats ${rH} (comp).`;
                 flashBorder(element.target.id, "green");
-            }
-            if (winner == 1) {
+                break;
+            case 1:
                 elements.results.textContent = `${rH} (comp) beats ${element.target.id} (user).`;
                 flashBorder(element.target.id, "red");
-            }
+                break;
+        }
+        if (winner > -1) {
             state.scores[winner ? "comp" : "user"] += 1;
         }
+
         elements.scores.comp.textContent = state.scores.comp;
         elements.scores.user.textContent = state.scores.user;
     }
